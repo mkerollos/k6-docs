@@ -12,9 +12,9 @@ Sets the default maximum navigation timeout for [Page.goto()](/javascript-api/xk
 
 ### Example
 
-<!-- eslint-skip -->
-
 <CodeGroup labels={[]}>
+
+<!-- eslint-skip -->
 
 ```javascript
 const context = browser.newContext();

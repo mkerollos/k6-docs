@@ -15,9 +15,9 @@ Sets the context's geolocation.
 
 ### Example
 
-<!-- eslint-skip -->
-
 <CodeGroup labels={[]}>
+
+<!-- eslint-skip -->
 
 ```javascript
 const context = browser.newContext();

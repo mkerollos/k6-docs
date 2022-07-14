@@ -10,6 +10,8 @@ Clears all permission overrides for the browser context.
 
 <CodeGroup labels={[]}>
 
+<!-- eslint-skip -->
+
 ```javascript
 const context = browser.newContext();
 context.grantPermissions(['clipboard-read']);

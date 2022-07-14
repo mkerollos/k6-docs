@@ -17,6 +17,8 @@ Grants specified permissions to the browser context. Only grants corresponding p
 
 <CodeGroup labels={[]}>
 
+<!-- eslint-skip -->
+
 ```javascript
 const context = browser.newContext();
 context.grantPermissions(['clipboard-read', 'clipboard-write'],
