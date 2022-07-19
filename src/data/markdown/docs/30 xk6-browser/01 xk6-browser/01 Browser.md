@@ -3,22 +3,21 @@ title: "Browser"
 excerpt: "xk6-browser: Browser Class"
 ---
 
-<BrowserCompatibility/>
+The `Browser` class is the entry point for all your tests, and it is what interacts with the actual web browser via [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) (CDP). It manages:
+- [BrowserContext](/javascript-api/xk6-browser/browsercontext/)s which is where you can set a variety of attributes to control the behavior of pages;
+- and [Page](/javascript-api/xk6-browser/page/)s which is where your rendered site is displayed.
 
-A Browser is created via [browserType.launch([options])](/javascript-api/xk6-browser/browsertype/#browsertype-launch-options).
+A new Browser instance (hence a new browser process) can be created using the `launch()` function of the `'k6/x/browser'` module.
 
-| Method                                                                                         | Description                                                                                                     |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| [browser.close()](/javascript-api/xk6-browser/browser/close)                                   | Closes the browser and all of its pages (if any were opened).                                                   |
-| [browser.contexts()](/javascript-api/xk6-browser/browser/contexts)                             | Allows you to access all open browser contexts.                                                                 |
-| [browser.isConnected](/javascript-api/xk6-browser/browser/isconnected)                         | Indicates whether the WebSocket connection to the browser application is active or not.                         |
-| 🚧 [browser.newBrowserCDPSession()](/javascript-api/xk6-browser/browser/newbrowsercdpsession) | Allows you to access Browser's CDP session and talk directly to the browser application using the CDP protocol. |
-| [browser.newContext([options])](/javascript-api/xk6-browser/browser/newcontext/)               | Creates and returns a new browser context.                                                                      |
-| [browser.newPage([options])](/javascript-api/xk6-browser/browser/newpage)                      | Creates a new Page in a new BrowserContext and returns the page.                                                |
-| 🚧 [browser.on('disconnected')](/javascript-api/xk6-browser/browser/on)                       | Detects events from the browser application.                                                                    |
-| ❌ [browser.startTracing()](/javascript-api/xk6-browser/browser/starttracing)                  | Starts Chromium Tracing for debugging a Page.                                                                   |
-| ❌ [browser.stopTracing()](/javascript-api/xk6-browser/browser/stoptracing)                    | Stops the tracing created by the browser.startTracing() method.                                                 |
-| [browser.version()](/javascript-api/xk6-browser/browser/version)                               | Returns the browser application's version.                                                                      |
+| Method                                                                                    | Description                                                                                                                                           |
+|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [browser.close()](/javascript-api/xk6-browser/browser/close)                              | Closes the browser and all of its pages (if any were opened).                                                                                         |
+| [browser.contexts()](/javascript-api/xk6-browser/browser/contexts)                        | Allows you to access all open [BrowserContext](/javascript-api/xk6-browser/browsercontext/)s.                                                        |
+| <BWIPT id="453"/> [browser.isConnected](/javascript-api/xk6-browser/browser/isconnected)  | Indicates whether the [CDP](https://chromedevtools.github.io/devtools-protocol/) connection to the browser process is active or not.                  |
+| <BWIPT id="455"/> [browser.newContext([options])](/javascript-api/xk6-browser/browser/newcontext/) | Creates and returns a new [BrowserContext](/javascript-api/xk6-browser/browsercontext/).                                                             |
+| <BWIPT id="455"/> [browser.newPage([options])](/javascript-api/xk6-browser/browser/newpage)        | Creates a new [Page](/javascript-api/xk6-browser/page/) in a new [BrowserContext](/javascript-api/xk6-browser/browsercontext/) and returns the page. |
+| [browser.on('disconnected')](/javascript-api/xk6-browser/browser/on) | Detects the disconnected event from the browser application. |
+| [browser.version()](/javascript-api/xk6-browser/browser/version)                          | Returns the browser application's version.                                                                                                            |
 
 An example of using a Browser to create a [Page](/javascript-api/xk6-browser/page):
 
